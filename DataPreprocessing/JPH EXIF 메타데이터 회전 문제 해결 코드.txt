@@ -1,0 +1,38 @@
+import os
+import glob
+from PIL import Image, ExifTags
+
+orig_dir = r"D:\data\tomato\tomato_제외기준4번\104_data\Validation\0_healthy"
+
+photos = glob.glob(orig_dir + '\\*.jpg')
+total_pictures = len(photos)
+print("total number of photos is: " + str(total_pictures))
+
+for photo in photos:
+    try:
+        print(photo)
+        if not os.path.isfile(photo):
+            continue
+        
+        im = Image.open(photo)
+
+        for orientation in ExifTags.TAGS.keys():
+            if ExifTags.TAGS[orientation] == 'Orientation':
+                break
+
+        exif=dict(im._getexif().items())
+
+        if exif[orientation] == 3:
+            im=im.rotate(180, expand=True)
+        elif exif[orientation] == 6:
+            im=im.rotate(270, expand=True)
+        elif exif[orientation] == 8:
+            im=im.rotate(90, expand=True)
+
+        im.save(photo)  # Save the image with the same name (overwriting the original one).
+        
+    except Exception as e:
+        print("caught error: ", e)
+
+    finally: 
+         im.close()
