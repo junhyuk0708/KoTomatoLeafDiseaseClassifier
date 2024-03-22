@@ -15,10 +15,9 @@
 
 ### 필수 요구 사항
 
-- Python 3.x
-- PyTorch
-- OpenCV
-- 기타 필요한 패키지는 `requirements.txt` 참조
+- Python 3.11
+- PyTorch 2.1.1
+- 기타 필요한 패키지는 `Dockerfile` 참조
 
 ### 설치
 
