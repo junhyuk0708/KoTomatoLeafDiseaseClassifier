@@ -26,6 +26,7 @@
 git clone <이 프로젝트의 GitHub URL>
 cd <프로젝트 디렉터리>
 pip install -r requirements.txt
+```
 
 ## 중심어
 
