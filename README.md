@@ -26,3 +26,7 @@
 git clone <이 프로젝트의 GitHub URL>
 cd <프로젝트 디렉터리>
 pip install -r requirements.txt
+
+## 중심어
+
+-  클래스 불균형, 재귀적 학습, YOLOv8, EfficientNet, 토마토 병해
